@@ -1,8 +1,15 @@
+import { TailwindIndicator } from "@/components/utils/tailwind-indicator";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+// Font files to be colocated inside app
+
+const satoshi = localFont({
+  src: /*"@app/satoshi/Satoshi-Light.oft", */"./satoshi/Satoshi-Light.otf",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,12 +18,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={satoshi.className}>
+        {children}
+        <TailwindIndicator />
+      </body>
     </html>
   );
 }

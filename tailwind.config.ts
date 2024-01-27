@@ -8,6 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        clamp: "clamp(2rem, 5vw, 6rem)",
+        strokeClamp: "clamp(3rem, 10vw, 15rem)",
+      },
+
+      fontFamily(utils) {
+        return {
+          sans: ["Satoshi"],
+        };
+      },
+
+      colors: {
+        primary: "#a2a2a3",
+        secondary: "#fff",
+      },
+
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
